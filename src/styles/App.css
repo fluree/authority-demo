@@ -31,3 +31,27 @@
     transform: rotate(360deg);
   }
 }
+
+.formSec {
+  padding: 10px;
+  border-left: 1px solid lightblue;
+  border-bottom: 1px solid lightblue;
+  margin-left: 20%;
+}
+
+.m20 {
+  margin: 20px;
+} 
+
+.mb20 {
+  margin-bottom: 20px;
+} 
+
+.mb40 {
+  margin-bottom: 40px;
+}
+
+.steps {
+  text-align: left;
+  padding: 20px;
+}

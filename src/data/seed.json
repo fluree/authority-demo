@@ -1,0 +1,67 @@
+[{
+    "_id": "_user",
+    "username": "hr1",
+    "password": "075d283c727e50d324797335f982f6e8",
+    "salt": "5938c41b4650bc56e5087c765ca031f1",
+    "auth": ["_auth$hr1"]
+},
+{
+    "_id": "_auth$hr1",
+    "id": "hr1",
+    "authority": ["_auth$sysadmin"],
+    "roles": ["_role$addTodos"]
+},
+{
+    "_id": "_user",
+    "username": "hr2",
+    "password": "254cbf02f6e1c02be0e5a2919aad358f",
+    "salt": "4f398095fb7725bb422e8b92ff624b3a",
+    "auth": ["_auth$hr2"]
+},
+{
+    "_id": "_auth$hr2",
+    "id": "hr2",
+    "authority": ["_auth$sysadmin"],
+    "roles": ["_role$addTodos"]
+},
+{
+    "_id": "_user",
+    "username": "hr3",
+    "password": "3e415191f3f858a65eb44335b35fd774",
+    "salt": "09711dd227a54946fec122e5534278fb",
+    "auth": ["_auth$hr3"]
+},
+{
+    "_id": "_auth$hr3",
+    "id": "hr3",
+    "authority": ["_auth$sysadmin"],
+    "roles": ["_role$addTodos"]
+},
+{
+    "_id": "_user",
+    "username": "sysadmin",
+    "auth": ["_auth$sysadmin"]
+},
+{
+    "_id": "_auth$sysadmin",
+    "id": "TfBf4MmRpuEVY6jnWQ6jLFn39fY8Lb74DM1",
+    "doc": "A sysadmin auth. I have no roles myself."
+},
+{
+    "_id": "todo",
+    "id": 1,
+    "task": "Water office plant!"
+},
+{
+    "_id": "_role$addTodos",
+    "id": "addTodos",
+    "rules": ["_rule$addTodos"]
+},
+{
+    "_id": "_rule$addTodos",
+    "id": "addTodos",
+    "collection": "todo",
+    "collectionDefault": true,
+    "fns": [["_fn/name", "true"]],
+    "ops": ["transact"]
+}]

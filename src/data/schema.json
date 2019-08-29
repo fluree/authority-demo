@@ -1,0 +1,27 @@
+[{
+    "_id": "_collection",
+    "name": "todo"
+},
+{
+    "_id": "_predicate",
+    "name": "todo/id",
+    "type": "int",
+    "unique": true
+},
+{
+    "_id": "_predicate",
+    "name": "todo/task",
+    "type": "string"
+},
+{
+    "_id": "_predicate",
+    "name": "_user/password",
+    "type": "string",
+    "doc": "The hashed password"
+},
+{
+    "_id": "_predicate",
+    "name": "_user/salt",
+    "type": "string",
+    "doc": "The password salt"
+}]
