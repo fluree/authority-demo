@@ -1,68 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Fluree Authority Demo
 
-## Available Scripts
+This demo is designed for the downloadable Fluree versions 0.9.5 or above. It is an over-simplified, demonstration of how an actor in a network might use the authority feature.
 
-In the project directory, you can run:
+### Requisites
 
-### `npm start`
+- [FlureeDB](https://fluree-releases-public.s3.amazonaws.com/fluree-latest.zip)
+- Java 8 or above
+- Node
+- NPM
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Set-up
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+1. Start up a downloadable version of Fluree, 0.9.5 or above. 
+2. Create a new database.
+3. Update `./appConfig.js` to match you IP address, network, and database.
+4. Issue the body of `./data/schema.json` to create the schema.
+5. Issue the body of `./data/seed.json` to add the seed data.
+6. Run `npm install` in the `authority-demo` directory to install all depended-on packages.
+7. Run `npm start`.
 
-### `npm test`
+### Demo
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The demo shows a situation where users `hr1`, `hr2`, and `hr3` do not manage their own private keys, rather they have given `sysadmin` authority to sign transactions on their behalf. `hr1`, `hr2`, and `hr3` are the auth records for any transactions they initiate, but `sysadmin` is the authority. 
 
-### `npm run build`
+In the demo, `hr1`, `hr2`, and `hr3` must log in, which is how `sysadmin` confirms that they are who they claim to be. The decision of how to verify user identities depends on the authority. The video about this demo talks in greater detail about the pros and cons of this arrangement.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+When `hr1`, `hr2`, or `hr3` submit a new `todo`, the `todo` is added to the list, and the transaction creating that `todo` records that `sysadmin` is the `authority` that signed the transaction, but `hr1`, `hr2`, or `hr3` were the auth record that initiated the transaction. 
